@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{/layouts/layout}" >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body layout:fragment="container">
+<h3>고객목록</h3>
+<form method="post" th:action="@{/customer/list}">
+<div id='list-top' class='w-px600'>
+	<ul >
+		<li>고객명</li>
+		<li><input type='text' name='name' class='w-px120' th:value="${name}"></li>
+		<li><a class='btn-fill' onclick="$('form').submit()">검색</a></li>
+	</ul>
+	<ul>
+		<li><a th:href='@{/customer/new}' class='btn-fill'>신규고객등록</a></li>
+	</ul>
+</div>
+</form>
+
+<!-- <div class='btnSet'> -->
+<!-- 	<a th:href='@{/customer/new}' class='btn-fill'>신규고객등록</a> -->
+<!-- </div> -->
+<table class='w-px600 tb-list'>
+<thead>
+	<tr><th class='w-px140'>고객명</th>
+		<th>이메일</th>
+		<th class='w-px160'>전화번호</th>
+	</tr>
+</thead>
+<tbody>
+	<tr th:each="vo : ${list}">
+		<!--       jsp표현방식  thymeleaf표현방식
+		파라미터사용:info?id=1   info(id=값)  
+		경로형태사용:info/1      info/{id}(id=값)
+		-->
+<!-- 		<td><a th:href='@{/customer/info(id=${vo.cid})}'>[[ ${vo.name } ]]</a></td>   -->
+		<td><a th:href='@{/customer/info/{id}(id=${vo.cid})}'>[[ ${vo.name } ]]</a></td>  
+		<td>[[ ${vo.email } ]]</td>
+		<td th:text="${vo.phone }"></td>
+	</tr>
+	
+</tbody>
+</table>
+</body>
+</html>
