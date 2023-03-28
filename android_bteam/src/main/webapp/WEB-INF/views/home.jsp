@@ -6,7 +6,7 @@
 	<title>Home</title>
 </head>
 <body>
-<h3>오픈소스 기반 지능형 IoT 융합 개발자 과정</h3>
+<h3>오픈소스 기반 지능형 IoT 융합 개발자 과정xxxxx</h3>
 <img src='imgs/hanul.png' style='width:80%'>
 </body>
 </html>
